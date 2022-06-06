@@ -8,19 +8,17 @@ class PageController extends Controller
 {
     public function landing(){
         $posters = new Poster();
-        $data = $posters->getAllPosters();
-        return view('landing', ['data'=>$data]);
+        return view('landing', ['data'=>$posters->getPosters()]);
     }
 
     public function container(){
         $posters = new Poster();
-        $data = $posters->getAllPosters();
-        return view('container', ['data'=>$data]);
+        return view('container', ['data'=>$posters->getPosters()]);
     }
 
     public function posterinfo($value){
         $posters = new Poster();
-        $data = $posters->getAllPosters();
+        $data = $posters->getPosters();
         $poster = $posters->findPoster($value);
         return view('posterinfo', compact('poster', 'data'));
     }
