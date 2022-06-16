@@ -1,18 +1,20 @@
 @extends('layouts.layout')
 
-@section('title'){{$poster['name']}} @endsection
+@section('title')
+    {{$poster->name}}
+@endsection
 
 @section('content')
-
+    @if($poster)
     <section class="links links-info-page">
         <div class="container">
             <a href="{{route('landing')}}">На головну</a>
             <p>&nbsp|&nbsp</p>
             <a href="{{route('container')}}">Афіша</a>
             <p class="full-name">&nbsp|&nbsp</p>
-            <a class="full-name" href="">{{$poster['name']}}</a>
+            <a class="full-name" href="">{{$poster->name}}</a>
             <p class="short-name">&nbsp|&nbsp</p>
-            <a class="short-name" href="">{{$poster['short-name']}}</a>
+            <a class="short-name" href="">{{$poster->short_name}}</a>
         </div>
     </section>
 
@@ -27,33 +29,37 @@
             </div>
         </div>
     @endif
-
     <section class="poster-main-info">
         <div class="container">
             <h1>
-                {{$poster['name']}}
+                {{$poster->name}}
             </h1>
             <hr>
             <div class="row">
                 <div class="col-12 col-lg-6">
                     <div class="block">
-                        <img src="../images/{{$poster['img']}}.jpg" alt="">
+                        <img src="../images/events/{{$poster->img}}.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-12 col-lg-6">
                     <div class="full-poster-info">
                         <div class="written-info">
                             <img src="../images/poster/calendar.png" alt="">
-                            <p>Дата проведення:&nbsp <br> Від {{$poster['from']}} - До {{$poster['to']}}</p>
+                            <p>Дата проведення:&nbsp <br> Від {{date('d.m.Y', strtotime($poster->from))}} -
+                                До {{date('d.m.Y', strtotime($poster->to))}}</p>
                         </div>
                         <div class="written-info">
                             <img src="../images/poster/theater.png" alt="">
-                            <p>{{$poster['hall']}} зала</p>
+                            @if($poster->hall)
+                                <p>{{$poster->hall->name}}</p>
+                            @else
+                                <p>Нема зали</p>
+                            @endif
                         </div>
                         <div class="written-info">
                             <img src="../images/poster/banknotes.png" alt="">
                             <p>Ціна:</p>
-                            <p class="price">{{$poster['price']}} ГРН.</p>
+                            <p class="price">{{$poster->price}} ГРН.</p>
                         </div>
                     </div>
                     <div class="button">
@@ -73,7 +79,7 @@
             <div class="block">
                 <div class="spacing">
                     <p>
-                        {!! $poster['about'] !!}
+                        {!! $poster->about !!}
                     </p>
                 </div>
             </div>
@@ -86,5 +92,10 @@
     <div onclick="show('none')" id="bg-form" class="bg-gray"></div>
 
     @include('includes.form')
+    @else
+        <h1>
+            На жаль, нема події...
+        </h1>
+    @endif
 
 @endsection

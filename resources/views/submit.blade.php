@@ -16,7 +16,7 @@
     <section class="confirmation">
         <div class="container">
             @if($name && $email)
-                <h1>Користувач {{$name}}</h1>
+                <h1>{{$name}}, дякуємо за покупку!</h1>
                 <div class="message">
                     <img src="../images/submit/e-mail.png" alt="">
                     <p>На пошту {{$email}} було надіслано повідомлення із підтвердженням покупки. Будь ласка, введіть

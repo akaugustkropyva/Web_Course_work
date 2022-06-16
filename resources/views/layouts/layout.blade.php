@@ -8,6 +8,8 @@
 
 @yield('content')
     @include('includes.footer')
+
+    <script src="{{ asset("js/menustate.js") }}"></script>
 </body>
 </html>
 

@@ -2,6 +2,7 @@
 @my-purple: #9E7B9B;
 @small-opacity-purple: rgba(158, 123, 155, 0.75);
 @big-opacity-purple: rgba(158, 123, 155, 0.6);
+@yellow-opacity: rgba(255, 213, 97, 0.85);
 @dark-text: #311847;
 
 html,
@@ -33,33 +34,42 @@ hr {
     background-color: white;
 }
 
-.logo {
-    display: flex;
-    align-items: center;
+.landing-href {
 
-    img {
-        width: 70px;
-    }
+    text-decoration: none;
 
-    .name {
-        width: 230px;
+    .logo {
+        display: flex;
+        align-items: center;
 
-        p {
-            text-align: center;
-            font-size: 40px;
-            margin: 0;
+        img {
+            width: 70px;
+            height: 70px;
         }
 
-        hr {
-            margin: 0;
+        .name {
+            width: 230px;
+
+            p {
+                color: white;
+                text-align: center;
+                font-size: 40px;
+                margin: 0;
+            }
+
+            hr {
+                margin: 0;
+            }
         }
     }
 }
+
 
 .phone {
     display: flex;
     align-items: center;
     font-size: 40px;
+    color: white;
 
     .small {
         font-size: 24px;
@@ -98,6 +108,10 @@ hr {
             display: flex;
             justify-content: right;
             width: 300px;
+        }
+
+        .menu-mobile-version {
+            display: none;
         }
 
         .menu-icon {
@@ -144,6 +158,7 @@ hr {
     color: white;
     background-color: #dc3545;
     opacity: 60%;
+
     .container {
 
         display: flex;
@@ -299,6 +314,13 @@ hr {
     }
 }
 
+.partners {
+    height: 800px;
+    .circle {
+        object-fit: cover;
+    }
+}
+
 .sales-block {
     background: transparent;
     height: 1050px;
@@ -307,11 +329,6 @@ hr {
         display: flex;
         flex-direction: column;
         justify-content: center;
-
-        img {
-            height: 130px;
-            width: 130px;
-        }
 
         .square {
             display: flex;
@@ -323,6 +340,11 @@ hr {
             width: 420px;
             border-radius: 15px;
             margin-top: 40px;
+
+            img {
+                height: 130px;
+                width: 130px;
+            }
 
             p {
                 color: @dark-text;
@@ -341,12 +363,44 @@ hr {
             width: 420px;
             border-radius: 15px;
             margin-top: 25px;
+
+            ul {
+                margin-right: 20px;
+                font-size: 24px;
+                color: white;
+                width: 80%;
+            }
+        }
+    }
+}
+
+.hall-blocks {
+    height: 950px;
+    .col-xl-4 {
+
+        .square {
+            background: none;
+            align-items: normal;
+
+            img {
+                height: 240px;
+                width: 420px;
+                border-radius: 15px;
+            }
+
+            p {
+                text-align: center;
+                position: absolute;
+                font-size: 40px;
+                height: 50px;
+                width: 420px;
+                background-color: @yellow-opacity;
+                color: @dark-text;
+            }
         }
 
-        ul {
-            font-size: 24px;
-            color: white;
-            width: 75%;
+        .block {
+            height: 460px;
         }
     }
 }
@@ -532,6 +586,74 @@ hr {
     }
 }
 
+
+.contacts-info {
+    height: 1150px;
+    .container {
+        .row {
+            .col-12 {
+                .full-poster-info {
+                    margin-top: 50px;
+                    justify-content: space-between;
+
+                    .written-info {
+                        height: 100px;
+
+                        .hash-tag {
+                            margin-top: 15px;
+                        }
+
+                        .media {
+                            display: flex;
+                            justify-content: space-around;
+                            width: 100%;
+                            margin-top: 50px;
+                            a:hover {
+                                border-bottom: 10px @my-purple solid;
+                            }
+                        }
+                    }
+
+                    .social-media {
+                        padding: 0;
+                        justify-content: center;
+
+                        p {
+                            margin-left: 0;
+                            margin-top: 100px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.about-us-picture-block {
+    height: 900px;
+
+    .row {
+
+        .col-12 {
+            .block {
+                display: flex;
+                justify-content: center;
+                height: 700px;
+                width: 100%;
+                border-radius: 15px;
+                background-color: @big-opacity-purple;
+
+                img {
+                    height: 100%;
+                    width: 80%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}
+
 .posters-block {
     background: transparent;
     height: 1250px;
@@ -559,35 +681,47 @@ hr {
 }
 
 .posters-block-container {
-    height: 3000px;
+    height: 2050px;
 
-    .more-button {
-        margin-top: 60px;
+    .pagination {
+        width: 590px;
+        padding-left: 0;
+        list-style: none;
         display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 230px;
-        height: 80px;
-        background-color: @my-purple;
-        border-radius: 15px;
+        justify-content: space-between;
+        color: white;
+        font-size: 40px;
 
-        .more {
-            color: white;
-            font-size: 32px;
+        .page-item {
+            display: flex;
+            width: 40px;
             text-decoration: none;
-        }
 
-        img {
-            width: 35px;
-            height: 35px;
-        }
-    }
+            span {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                text-decoration: underline;
+            }
 
-    .more-button:hover {
-        border-bottom: 10px solid white;
-        background-color: #311847;
-        text-decoration: underline;
-        transition: 0.3s all;
+            .not-underlined {
+                text-decoration: none;
+            }
+
+            a {
+                display: flex;
+                justify-content: center;
+                width: 100%;
+                border-radius: 5px;
+                color: white;
+                text-decoration: none;
+            }
+
+            a:hover {
+                background: white;
+                color: black;
+            }
+        }
     }
 }
 
@@ -678,6 +812,32 @@ hr {
     }
 }
 
+.info-about-us {
+    height: 700px;
+
+    .container {
+        .block {
+            height: 600px;
+        }
+    }
+}
+
+.news {
+    height: 3400px;
+
+    .container {
+        h1 {
+            width: 70%;
+            height: 130px;
+            margin-top: 50px;
+        }
+
+        button {
+            margin-bottom: 120px;
+        }
+    }
+}
+
 .bg-gray {
     background-color: rgba(1, 1, 1, 0.75);
     display: none;
@@ -753,9 +913,11 @@ hr {
                     flex-direction: row;
                     justify-content: space-between;
                     width: 55%;
+
                     .input {
                         width: 60px;
                     }
+
                     p {
                         display: flex;
                         align-items: center;
@@ -801,7 +963,7 @@ hr {
 }
 
 .choice-maker {
-    height: 270px;
+    height: 400px;
 
     .container {
 
@@ -852,6 +1014,24 @@ hr {
             }
         }
 
+        .search {
+            width: 310px;
+            height: 80px;
+            margin-bottom: 50px;
+            margin-top: 30px;
+            background-color: @dark-text;
+            border-radius: 15px;
+            color: white;
+            font-family: Podkova, serif;
+            font-size: 32px;
+            text-decoration: none;
+            border: none;
+        }
+
+        .search:hover {
+            text-decoration: underline;
+            transition: 0.3s all;
+        }
     }
 }
 
@@ -942,6 +1122,10 @@ hr {
         }
     }
 
+    .partners {
+        height: 750px;
+    }
+
     .sales-block {
         height: 1050px;
 
@@ -955,6 +1139,28 @@ hr {
                 height: 570px;
             }
         }
+    }
+
+    .hall-blocks {
+
+        .container {
+            .col-xl-4 {
+
+                .square {
+
+                    img {
+                        height: 240px;
+                        width: 100%;
+                        border-radius: 15px;
+                    }
+
+                    p {
+                        width: 364px;
+                    }
+                }
+            }
+        }
+
     }
 
     .poster {
@@ -985,7 +1191,12 @@ hr {
     }
 
     .posters-block-container {
-        height: 3000px;
+        height: 2050px;
+
+        .pagination {
+            width: 570px;
+            font-size: 36px;
+        }
     }
 
     .additional-info-block {
@@ -1011,6 +1222,24 @@ hr {
     .additional-info-block-info-page {
         height: 1300px;
     }
+
+    .news {
+        height: 3470px;
+
+        .container {
+            .block {
+                height: 590px;
+            }
+
+            h1 {
+                height: 170px;
+            }
+        }
+    }
+
+    .info-about-us {
+        height: 700px;
+    }
 }
 
 @media screen and (max-width: 1199.5px) {
@@ -1023,21 +1252,25 @@ hr {
         font-size: 36px
     }
 
-    .logo-header {
+    .landing-href {
 
-        img {
-            width: 45px;
-            height: 45px;
-        }
+        .logo-header {
 
-        .name {
-            width: 125px;
+            img {
+                width: 45px;
+                height: 45px;
+            }
 
-            p {
-                font-size: 22px;
+            .name {
+                width: 125px;
+
+                p {
+                    font-size: 22px;
+                }
             }
         }
     }
+
 
     .phone-header {
         font-size: 26px;
@@ -1121,6 +1354,10 @@ hr {
         }
     }
 
+    .partners {
+        height: 1170px;
+    }
+
     .sales-block {
         height: 2000px;
 
@@ -1134,6 +1371,29 @@ hr {
             .block {
                 width: 100%;
                 height: 320px;
+            }
+        }
+    }
+
+    .hall-blocks {
+
+        .container {
+            .col-xl-4 {
+
+                .square {
+                    img {
+                        object-fit: cover;
+                    }
+
+                    p {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size: 30px;
+                        height: 40px;
+                        width: 900px;
+                    }
+                }
             }
         }
     }
@@ -1200,6 +1460,20 @@ hr {
         }
     }
 
+    .contacts-info {
+        height: 1000px;
+        .container {
+            .row {
+                .col-12 {
+                    .full-poster-info {
+                        margin-top: 0;
+                        margin-left: 10px;
+                    }
+                }
+            }
+        }
+    }
+
     .posters-block {
         height: 2025px;
 
@@ -1215,10 +1489,11 @@ hr {
     }
 
     .posters-block-container {
-        height: 5650px;
+        height: 3800px;
 
-        .more-button {
-            border-radius: 15px;
+        .pagination {
+            width: 550px;
+            font-size: 34px;
         }
     }
 
@@ -1238,6 +1513,37 @@ hr {
         button {
             height: 70px;
             font-size: 24px;
+        }
+    }
+
+    .info-about-us {
+        height: 630px;
+
+        .container {
+            .block {
+                margin-top: 120px;
+            }
+        }
+    }
+
+    .news {
+        height: 3570px;
+
+        .container {
+            .block {
+                height: 680px;
+
+                .spacing {
+                    p {
+                        width: 400px;
+                    }
+                }
+            }
+
+            h1 {
+                height: 140px;
+                margin-top: 30px;
+            }
         }
     }
 
@@ -1261,6 +1567,11 @@ hr {
                         font-size: 28px;
                     }
                 }
+            }
+
+            .search {
+                height: 70px;
+                font-size: 32px;
             }
         }
     }
@@ -1290,6 +1601,10 @@ hr {
 
 @media screen and (max-width: 991.5px) {
 
+    body {
+        z-index: 50;
+    }
+
     h1 {
         margin-top: 75px;
     }
@@ -1302,7 +1617,26 @@ hr {
         .container {
 
             .menu {
-                display: none;
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                margin-right: 0;
+                margin-top: 51px;
+                width: 250px;
+                height: 300px;
+                right: -100%;
+                background-color: @my-purple;
+                border-bottom-left-radius: 30px;
+                z-index: 150;
+                transition: 0.3s all;
+
+                a:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .active {
+                right: 0;
             }
 
             .contacts {
@@ -1338,6 +1672,21 @@ hr {
         .col-ld-12 {
             .block {
                 height: 400px;
+            }
+        }
+    }
+
+    .hall-blocks {
+
+        .container {
+            .col-xl-4 {
+
+                .square {
+
+                    p {
+                        width: 720px;
+                    }
+                }
             }
         }
     }
@@ -1394,13 +1743,44 @@ hr {
         }
     }
 
+    .contacts-info {
+        height: 1470px;
+        .container {
+            .row {
+                .col-12 {
+                    .full-poster-info {
+                        margin-top: 30px;
+                        margin-left: 0;
+
+                        .written-info {
+
+                            .media {
+                                margin-top: 0;
+                            }
+                        }
+
+                        .footer-info {
+                            margin-left: 103px;
+                        }
+
+                        .social-media {
+
+                            p {
+                                margin-top: 50px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     .posters-block-container {
 
-        .more-button {
-
-            .more {
-                font-size: 30px;
-            }
+        .pagination {
+            margin-top: 50px;
+            width: 530px;
+            font-size: 30px;
         }
     }
 
@@ -1429,8 +1809,47 @@ hr {
         height: 1200px;
     }
 
+    .about-us-picture-block {
+        height: 600px;
+        .container {
+            .row {
+                .col-12 {
+                    .block {
+                        height: 400px;
+                    }
+                }
+            }
+        }
+    }
+
+    .info-about-us {
+        height: 630px;
+
+        .container {
+            .block {
+                margin-top: 10px;
+            }
+        }
+    }
+
+    .news {
+        height: 3340px;
+
+        .container {
+            .block {
+                height: 620px;
+
+                .spacing {
+                    p {
+                        width: 340px;
+                    }
+                }
+            }
+        }
+    }
+
     .choice-maker {
-        height: 400px;
+        height: 500px;
 
         .container {
 
@@ -1448,6 +1867,16 @@ hr {
                     .choicebox {
                         width: 472px;
                     }
+                }
+            }
+
+            .form {
+                justify-content: right;
+
+                .search {
+
+                    width: 472px;
+                    height: 60px;
                 }
             }
         }
@@ -1602,6 +2031,10 @@ hr {
         }
     }
 
+    .partners {
+        height: 890px;
+    }
+
     .sales-block {
         height: 1860px;
 
@@ -1611,15 +2044,15 @@ hr {
         }
 
         .col-ld-12 {
-            img {
-                height: 90px;
-                width: 90px;
-            }
-
             .square {
                 width: 100%;
                 height: 180px;
                 margin-top: 30px;
+
+                img {
+                    height: 90px;
+                    width: 90px;
+                }
 
                 p {
                     font-size: 20px;
@@ -1631,10 +2064,32 @@ hr {
                 width: 100%;
                 height: 370px;
                 margin-top: 15px;
-            }
 
-            ul {
-                font-size: 20px;
+                ul {
+                    font-size: 20px;
+                }
+            }
+        }
+    }
+
+    .hall-blocks {
+        height: 1900px;
+
+        .container {
+            .col-xl-4 {
+
+                .square {
+                    img {
+                        width: 100%;
+                        height: 180px;
+                    }
+
+                    p {
+                        font-size: 24px;
+                        width: 540px;
+                    }
+                }
+
             }
         }
     }
@@ -1721,26 +2176,21 @@ hr {
         }
     }
 
+    .contacts-info {
+        height: 1370px;
+    }
+
     .posters-block {
         height: 1710px;
     }
 
     .posters-block-container {
-        height: 4720px;
+        height: 3200px;
 
-        .more-button {
-            margin-top: 40px;
-            width: 200px;
-            height: 60px;
-
-            .more {
-                font-size: 26px;
-            }
-
-            img {
-                width: 25px;
-                height: 25px;
-            }
+        .pagination {
+            margin-top: 30px;
+            width: 500px;
+            font-size: 28px;
         }
     }
 
@@ -1770,12 +2220,60 @@ hr {
         }
     }
 
+    .about-us-picture-block {
+        height: 420px;
+        .container {
+            .row {
+                .col-12 {
+                    .block {
+                        height: 250px;
+                    }
+                }
+            }
+        }
+    }
+
+    .info-about-us {
+        height: 540px;
+
+        .container {
+            .block {
+                margin-top: 0;
+                height: 500px;
+            }
+        }
+    }
+
+    .news {
+        height: 3370px;
+
+        .container {
+            .block {
+                height: 680px;
+
+                .spacing {
+                    p {
+                        width: 200px;
+                    }
+                }
+            }
+
+            h1 {
+                margin-top: 30px;
+            }
+
+            button {
+                margin-bottom: 80px;
+            }
+        }
+    }
+
     .window {
         height: 550px;
     }
 
     .choice-maker {
-        height: 330px;
+        height: 400px;
 
         .container {
 
@@ -1812,6 +2310,16 @@ hr {
                     .choicebox {
                         width: 352px;
                     }
+                }
+            }
+
+            .form {
+                .search {
+
+                    width: 352px;
+                    height: 50px;
+                    margin-top: 20px;
+                    font-size: 22px;
                 }
             }
         }
@@ -1870,26 +2378,40 @@ hr {
         margin-bottom: 20px;
     }
 
-    .logo-header {
+    .landing-href {
+        .logo-header {
 
-        img {
-            width: 30px;
-            height: 30px;
-        }
+            img {
+                width: 30px;
+                height: 30px;
+            }
 
-        .name {
-            width: 90px;
+            .name {
+                width: 90px;
 
-            p {
-                font-size: 15px;
+                p {
+                    font-size: 15px;
+                }
             }
         }
     }
+
 
     .header {
         height: 50px;
 
         .container {
+
+            .menu {
+                margin-top: 36px;
+                width: 200px;
+                height: 300px;
+
+                a {
+                    font-size: 17px;
+                }
+            }
+
             .menu-icon {
                 img {
                     height: 20px;
@@ -2001,30 +2523,56 @@ hr {
         }
     }
 
+    .partners {
+        height: 690px;
+    }
+
     .sales-block {
         height: 1270px;
 
         .col-ld-12 {
-            img {
-                height: 50px;
-                width: 50px;
-            }
 
             .square {
                 width: 100%;
                 height: 110px;
                 margin-top: 20px;
+
+                img {
+                    height: 50px;
+                    width: 50px;
+                }
             }
 
             .block {
                 width: 100%;
                 height: 270px;
                 margin-top: 10px;
-            }
 
-            ul {
-                margin-right: 10px;
-                font-size: 16px;
+                ul {
+                    margin-right: 10px;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+
+    .hall-blocks {
+        height: 1300px;
+
+        .container {
+            .col-xl-4 {
+
+                .square {
+                    img {
+                        height: 110px;
+                    }
+
+                    p {
+                        font-size: 20px;
+                        height: 24px;
+                        width: 440px;
+                    }
+                }
             }
         }
     }
@@ -2123,6 +2671,35 @@ hr {
         }
     }
 
+    .contacts-info {
+        height: 1040px;
+        .container {
+            .row {
+                .col-12 {
+                    .full-poster-info {
+
+                        .written-info {
+                            height: 80px;
+
+                        }
+
+                        .footer-info {
+                            margin-left: 70px;
+
+                            .phone-contacts {
+                                font-size: 30px;
+
+                                .small {
+                                    font-size: 17px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     .posters-block {
         height: 1170px;
 
@@ -2135,19 +2712,15 @@ hr {
     }
 
     .posters-block-container {
-        height: 3300px;
+        height: 2270px;
 
-        .more-button {
-            width: 130px;
-            height: 40px;
+        .pagination {
+            margin-top: 30px;
+            width: 420px;
+            font-size: 22px;
 
-            .more {
-                font-size: 17px;
-            }
-
-            img {
-                width: 15px;
-                height: 15px;
+            .page-item {
+                width: 30px;
             }
         }
     }
@@ -2191,6 +2764,36 @@ hr {
         }
     }
 
+    .about-us-picture-block {
+        height: 380px;
+    }
+
+    .info-about-us {
+        height: 420px;
+
+        .container {
+            .block {
+                height: 400px;
+            }
+        }
+    }
+
+    .news {
+        height: 2750px;
+
+        .container {
+            .block {
+                height: 480px;
+
+                .spacing {
+                    p {
+                        width: 210px;
+                    }
+                }
+            }
+        }
+    }
+
     .window {
         height: 520px;
 
@@ -2208,7 +2811,7 @@ hr {
     }
 
     .choice-maker {
-        height: 240px;
+        height: 300px;
 
         .container {
 
@@ -2243,6 +2846,16 @@ hr {
                         width: 285px;
 
                     }
+                }
+            }
+
+            .form {
+                .search {
+
+                    width: 285px;
+                    height: 40px;
+                    margin-top: 15px;
+                    font-size: 17px;
                 }
             }
         }
@@ -2355,12 +2968,35 @@ hr {
         }
     }
 
+    .partners {
+        height: 620px;
+    }
+
     .sales-block {
         height: 1480px;
 
         .col-ld-12 {
             .block {
                 height: 340px;
+            }
+        }
+    }
+
+    .hall-blocks {
+        height: 1520px;
+
+        .container {
+            .col-xl-4 {
+
+                .square {
+                    img {
+                        height: 110px;
+                    }
+
+                    p {
+                        width: 300px;
+                    }
+                }
             }
         }
     }
@@ -2391,6 +3027,31 @@ hr {
                 }
             }
         }
+    }
+
+    .contacts-info {
+        .container {
+            .row {
+                .col-lg-6 {
+
+                    .full-poster-info {
+
+                        .written-info {
+                            margin-left: 0;
+
+                            img {
+                                height: 40px;
+                                width: 40px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .contacts-info {
+        height: 1040px;
     }
 
     .posters-block {
@@ -2426,6 +3087,45 @@ hr {
         }
     }
 
+    .about-us-picture-block {
+        height: 320px;
+        .container {
+            .row {
+                .col-12 {
+                    .block {
+                        height: 200px;
+                    }
+                }
+            }
+        }
+    }
+
+    .info-about-us {
+        height: 600px;
+
+        .container {
+            .block {
+                height: 560px;
+            }
+        }
+    }
+
+    .news {
+        height: 2860px;
+
+        .container {
+            .block {
+                height: 560px;
+
+                .spacing {
+                    p {
+                        width: 160px;
+                    }
+                }
+            }
+        }
+    }
+
     .window {
         height: 500px;
         width: 300px;
@@ -2455,6 +3155,7 @@ hr {
 
                     .date {
                         width: 60%;
+
                         .input {
                             width: 55px;
                         }
@@ -2475,11 +3176,20 @@ hr {
     }
 
     .posters-block-container {
-        height: 3400px;
+        height: 2300px;
+
+        .pagination {
+            width: 300px;
+            font-size: 18px;
+
+            .page-item {
+                width: 20px;
+            }
+        }
     }
 
     .choice-maker {
-        height: 230px;
+        height: 280px;
 
         .container {
             .row {
@@ -2489,6 +3199,14 @@ hr {
                         width: 205px;
 
                     }
+                }
+            }
+
+            .form {
+                .search {
+
+                    width: 205px;
+                    margin-top: 10px;
                 }
             }
         }
@@ -2575,6 +3293,10 @@ hr {
         }
     }
 
+    .partners {
+        height: 570px;
+    }
+
     .sales-block {
         height: 1480px;
 
@@ -2587,6 +3309,20 @@ hr {
 
             .block {
                 height: 340px;
+            }
+        }
+    }
+
+    .hall-blocks {
+        .container {
+            .col-xl-4 {
+                .square {
+
+                    p {
+                        font-size: 17px;
+                        width: 280px;
+                    }
+                }
             }
         }
     }
@@ -2617,15 +3353,37 @@ hr {
         }
     }
 
+    .contacts-info {
+        .container {
+            .row {
+                .col-lg-6 {
+
+                    .full-poster-info {
+
+                        .written-info {
+                            margin-left: 0;
+
+                            img {
+                                height: 40px;
+                                width: 40px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     .posters-block {
         height: 1170px;
     }
 
     .posters-block-container {
-        height: 3270px;
+        height: 2220px;
 
-        .more-button {
-            margin-top: 30px;
+        .pagination {
+            width: 250px;
+            font-size: 17px;
         }
     }
 
@@ -2648,6 +3406,50 @@ hr {
                 .spacing {
                     width: 85%;
                 }
+            }
+        }
+    }
+
+    .about-us-picture-block {
+        height: 240px;
+        .container {
+            .row {
+                .col-12 {
+                    .block {
+                        height: 160px;
+                    }
+                }
+            }
+        }
+    }
+
+    .info-about-us {
+        height: 600px;
+
+        .container {
+            .block {
+                height: 600px;
+
+            }
+        }
+    }
+
+    .news {
+        height: 3100px;
+
+        .container {
+            .block {
+                height: 680px;
+
+                .spacing {
+                    p {
+                        width: 138px;
+                    }
+                }
+            }
+
+            button {
+                margin-bottom: 40px;
             }
         }
     }
@@ -2675,6 +3477,13 @@ hr {
                         width: 178px;
 
                     }
+                }
+            }
+
+            .form {
+                .search {
+
+                    width: 178px;
                 }
             }
         }

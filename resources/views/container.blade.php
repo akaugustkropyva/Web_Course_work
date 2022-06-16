@@ -1,6 +1,8 @@
 @extends('layouts.layout')
 
-@section('title')Афіша подій @endsection
+@section('title')
+    Афіша подій
+@endsection
 
 @section('content')
     <section class="links">
@@ -17,80 +19,94 @@
                 Афіша подій
             </h1>
             <hr>
-            <div class="row">
-                <div class="col-4 col-lg-3">
-                    <div class="filter-caption">
-                        <img src="../images/filter/filter.png" alt="">
-                        <p>Фільтр:</p>
+            <form action="{{route('container')}}" method="get">
+                <div class="row">
+                    <div class="col-4 col-lg-3">
+                        <div class="filter-caption">
+                            <img src="../images/filter/filter.png" alt="">
+                            <p>Фільтр:</p>
+                        </div>
+                    </div>
+                    <div class="col-8 col-lg-3">
+                        <label>
+                            <select name="date_choice" class="choicebox dates">
+                                @if($dates)
+                                    @foreach($dates as $date)
+                                        <option value="{{$date->value}}"
+                                                @if(isset($_GET['date_choice'])) @if($_GET['date_choice'] == $date->value) selected @endif @endif >{{$date->name}}</option>
+                                    @endforeach
+                                @else
+                                    <option value="no-date" selected>Нема дат</option>
+                                @endif
+                            </select>
+                        </label>
+                    </div>
+                    <div class="col-12 col-lg-3">
+                        <label>
+                            <select name="hall_id" class="choicebox halls">
+                                @if($halls)
+                                    @foreach($halls as $hall)
+                                        <option value="{{$hall->id}}"
+                                                @if(isset($_GET['hall_id'])) @if($_GET['hall_id'] == $hall->id) selected @endif @endif >{{$hall->name}}</option>
+                                    @endforeach
+                                @else
+                                    <option value="no-hall" selected>Нема залів</option>
+                                @endif
+                            </select>
+                        </label>
+                    </div>
+                    <div class="col-12 col-lg-3">
+                        <label>
+                            <select name="orderBy" class="choicebox order">
+                                @if($sortings)
+                                    @foreach($sortings as $sorting)
+                                        <option value="{{$sorting->value}}"
+                                                @if(isset($_GET['orderBy'])) @if($_GET['orderBy'] == $sorting->value) selected @endif @endif >{{$sorting->name}}</option>
+                                    @endforeach
+                                @else
+                                    <option value="no-sorting" selected>Нема сортувань</option>
+                                @endif
+                            </select>
+                        </label>
                     </div>
                 </div>
-                <div class="col-8 col-lg-3">
-                    <label>
-                        <select class="choicebox main-options">
-                            <option value="popular" selected>Популярні</option>
-                            <option value="close">Найближчі</option>
-                        </select>
-                    </label>
+                <div class="form">
+                    <button type="submit" class="search">Пошук</button>
                 </div>
-                <div class="col-12 col-lg-3">
-                    <label>
-                        <select class="choicebox dates">
-                            <option class="choice" value="all-dates" selected>Усі дати</option>
-                            <option class="choice" value="today">Сьогодні</option>
-                            <option class="choice" value="tomorrow">Завтра</option>
-                            <option class="choice" value="two-weeks">Два тижні</option>
-                            <option class="choice" value="month">Місяць</option>
-                        </select>
-                    </label>
-                </div>
-                <div class="col-12 col-lg-3">
-                    <label>
-                        <select class="choicebox hall">
-                            <option value="all-halls" selected>Усі зали</option>
-                            <option value="small-hall">Мала зала</option>
-                            <option value="starry-hall">Зоряна зала</option>
-                            <option value="big-hall">Велика зала</option>
-                        </select>
-                    </label>
-                </div>
-            </div>
+            </form>
         </div>
     </section>
 
     <section class="posters-block posters-block-container">
         <div class="container">
             <div class="row">
-                @if($data)
-                    @foreach($data as $poster)
+                @if($posters)
+                    @foreach($posters as $poster)
                         <div class="col-6 col-xl-3">
                             <div class="poster">
-                                <p class="name">{{$poster['name']}}</p>
-                                <img src="../images/{{$poster['img']}}.jpg" alt="">
+                                <p class="name">{{$poster->name}}</p>
+                                <img src="../images/events/{{$poster->img}}.jpg" alt="">
                                 <div class="calendar">
                                     <img src="../images/poster/calendar.png" alt="">
                                     <div class="text">
-                                        <p>Від {{$poster['from']}}</p>
-                                        <p>До {{$poster['to']}}</p>
+                                        <p>Від {{date('d.m', strtotime($poster->from))}}</p>
+                                        <p>До {{date('d.m', strtotime($poster->to))}}</p>
                                     </div>
                                 </div>
                                 <hr class="poster-hr">
-                                <p class="price">{{$poster['price']}} ГРН.</p>
-                                <a href="{{route('posterinfo', $poster['img'])}}">Придбати квиток</a>
+                                <p class="price">{{$poster->price}} ГРН.</p>
+                                <a href="{{route('posterinfo', $poster->id)}}">Придбати квиток</a>
                             </div>
                         </div>
                     @endforeach
+                    <div class="form">
+                        {{$posters->links()}}
+                    </div>
                 @else
                     <h1>
                         На жаль, подій нема...
                     </h1>
                 @endif
-            </div>
-
-            <div class="form">
-                <div class="more-button">
-                    <a class="more" href="">Більше</a>
-                    <img src="../images/more/redo.png" alt="">
-                </div>
             </div>
         </div>
     </section>
